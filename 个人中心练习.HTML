@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日身体状况</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #a29bfe;
+            background-image: url("F:/星火杯作品/img/background2.jpeg");
+            background-size: cover;
+        }
+        .Login{
+            width: 600px;
+            height: 900px;
+            display: flex;
+            border-radius: 15px;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.7),
+                rgba(255,255,255,.5),
+                rgba(255,255,255,.4)
+            );
+            /* 使背景模糊化 */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #a29bfe;
+        }
+        .table{
+            font: 900 40px '';
+            text-align: center;
+            letter-spacing: 5px;
+            color: #3d3d3d;
+        }
+        .box{
+            overflow: hidden;
+        }
+        
+        .box input{
+            width: 100%;
+            margin-bottom: 20px;
+            outline: none;
+            border: 0;
+            padding: 10px;
+            border-bottom: 3px solid rgb(150, 150, 240);
+            background-color: transparent;
+            font: 900 16px '';
+        }
+        .go{
+            text-align: center;
+            display: block;
+            height: 24px;
+            padding: 12px;
+            font: 900 20px '';
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #fff;
+            letter-spacing: 3px;
+            background-image: linear-gradient(to left, #fd79a8, #a29bfe);
+        }
+    </style>
+</head>
+<body>
+    <div class="Login">
+        <div class="box">
+            <p class="table">今日身体状况</p>
+            <br>
+            <script>
+                document.write(Date());
+                </script>
+            <input type="text" placeholder="血压">
+            <input type="password" placeholder="血氧">
+            <input type="text" placeholder="温度">
+                <input type="text" placeholder="脉搏">
+            <input type="text" placeholder="今日饮食">
+            
+            <br>
+            
+            <form action="http://127.0.0.1:5000/index/" method="post" enctype="multipart/form-data">
+                <!--利用块级标签分行显示 -->
+                <!--lable绑定id-->
+               
+                
+                <!--爱好-->
+                
+                <p>请在第一个框中输入体重，第二个框中输入身高：</p>
+            
+            <input id="numb1">
+            <input id="numb2">
+            <button type="button" onclick="myFunction()">提交</button>
+            
+            <p id="demo"></p>
+            <p id="demo"></p>
+            <script>
+            function myFunction() {
+                var x,y,z, text;
+            
+                // 获取 id="numb" 的值
+                x = document.getElementById("numb1").value;
+            y = document.getElementById("numb2").value;
+            z=x/(y*y);
+                // 如果输入的值 x 不是数字或者小于 1 或者大于 10，则提示错误 Not a Number or less than one or greater than 10
+                if (z<18.5) {
+                    window.alert("消瘦,多吃点，愿你每天好心情");
+                } else if(z>18.5&&z<23.9){
+                    window.alert("正常，继续保持");
+                }else if(z>24&&z<28){
+                    window.alert("微胖，继续加油，只差一点点了");
+                }else if(z>28){
+                    window.alert("肥胖，1,饮食上注意不能吃得过饱.2,适度运动，最基本就是走路，鼓励患者每天至少走6000步比较健康");
+                }
+                document.getElementById("demo").innerHTML = text;
+            }
+            </script>
+
+
+                
+                
+                <p>今日生活图片:<!--上传单个文件--><input type="file" name="file" placeholder="今日生活图片"> </p>
+                
+                
+                
+                <a href="F:\星火杯作品\每日鼓舞.html" class="go">提交</a>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>
